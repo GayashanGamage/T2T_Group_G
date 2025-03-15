@@ -7,6 +7,7 @@ If you are sharing this project via Git, others need to clone it first:
 ```bash
 git clone <repository_url>
 cd FastAPI
+cd .fastapi
 ```
 
 Step 2: Set Up a Virtual Environment
