@@ -3,7 +3,7 @@
 1. Open a terminal and run:
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/T2T_Group_G.git
+git clone https://github.com//YOUR_GITHUB_USERNAME//T2T_Group_G.git
 cd T2T_Group_G
 ```
 
