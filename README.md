@@ -66,3 +66,22 @@ Step 3: start keycloak
 ```bash
 docker-compose up -d
 ```
+
+# How to run flowiseai
+
+Pre-Requirements : install Docker in your computer
+
+Step 1: direct to the flowise directory
+
+```bash
+cd Flowise
+```
+
+Step 2: start docker desktop aplication
+
+
+Step 3: start flowise
+
+```bash
+docker-compose up -d
+```
