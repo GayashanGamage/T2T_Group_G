@@ -1,27 +1,48 @@
-## Initialize Local Repository & Push to GitHub
+# How to Run FastAPI on Another Computer
 
-1. Open a terminal and run:
+Step 1: Clone the Repository
 
-```bash
-git clone https://github.com//YOUR_GITHUB_USERNAME//T2T_Group_G.git
-cd T2T_Group_G
-```
-
-2. Initialize Git:
+If you are sharing this project via Git, others need to clone it first:
 
 ```bash
-git init
+git clone <repository_url>
+cd FastAPI
+cd .fastapi
 ```
 
-3. Add files:
+Step 2: Set Up a Virtual Environment
 
+To create and activate a virtual environment:
+
+For Windows (PowerShell):
 ```bash
-git add .
+python -m venv venv
+.\venv\Scripts\activate
 ```
-
-4. Commit changes:
-
+For macOS/Linux:
 ```bash
-git commit -m "Initial commit"
+python3 -m venv venv
+source venv/bin/activate
 ```
 
+Step 3: Install Dependencies
+
+Run the following command to install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+Step 4: Run the FastAPI Application
+
+Start the FastAPI server:
+```bash
+uvicorn main:app --reload
+```
+
+This will run the API at: http://127.0.0.1:8000
+
+Step 5: Access the API Documentation
+Once the server is running, access:
+
+Swagger UI: http://127.0.0.1:8000/docs
+ReDoc: http://127.0.0.1:8000/redoc
