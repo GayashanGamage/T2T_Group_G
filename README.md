@@ -36,7 +36,7 @@ Step 4: Run the FastAPI Application
 
 Start the FastAPI server:
 ```bash
-uvicorn main:app --reload
+fastapi app main.py 
 ```
 
 This will run the API at: http://127.0.0.1:8000
@@ -46,3 +46,23 @@ Once the server is running, access:
 
 Swagger UI: http://127.0.0.1:8000/docs
 ReDoc: http://127.0.0.1:8000/redoc
+
+
+# How to run Keyclock 
+
+Pre-Requirements : install Docker in your computer
+
+Step 1: direct to the Keycloak directory
+
+```bash
+cd Keycloke
+```
+
+Step 2: start docker desktop aplication
+
+
+Step 3: start keycloak
+
+```bash
+docker-compose up -d
+```
