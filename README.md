@@ -1,75 +1,49 @@
-# How to Run FastAPI on Another Computer
+# Run project
+Clone the repository
 
-Step 1: Clone the Repository
+## DO NOT USE docker-compose up.
+still there is a issue on docker-compose.yml file. there for do not try to start all services using this. insterd try to build and run each service one by one. follow bellow instructions 
 
-If you are sharing this project via Git, others need to clone it first:
+## Run FastAPI 
+
+Step 1: direct to FastAPI directory
 
 ```bash
-git clone <repository_url>
 cd FastAPI
-cd .fastapi
 ```
 
-Step 2: Set Up a Virtual Environment
+Step 2: build a Docker container
 
-To create and activate a virtual environment:
-
-For Windows (PowerShell):
 ```bash
-python -m venv venv
-.\venv\Scripts\activate
+docker build -t api
 ```
-For macOS/Linux:
+
+Step 3 : run the container
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+docker run -p 3000:3000 api
 ```
 
-Step 3: Install Dependencies
-
-Run the following command to install required packages:
-```bash
-pip install -r requirements.txt
-```
-
-Step 4: Run the FastAPI Application
-
-Start the FastAPI server:
-```bash
-fastapi app main.py 
-```
-
-This will run the API at: http://127.0.0.1:8000
-
-Step 5: Access the API Documentation
-Once the server is running, access:
-
-Swagger UI: http://127.0.0.1:8000/docs
-ReDoc: http://127.0.0.1:8000/redoc
+Step 4: access api-doc via [localhost://3000](http://0.0.0.0:3000/docs)
 
 
-# How to run Keyclock 
+# Run Keycloak
 
-Pre-Requirements : install Docker in your computer
-
-Step 1: direct to the Keycloak directory
+Step 1: direct to Keycloke directory
 
 ```bash
 cd Keycloke
 ```
 
-Step 2: start docker desktop aplication
-
-
-Step 3: start keycloak
+Step 2: run docker-compose file
 
 ```bash
 docker-compose up -d
 ```
 
-# How to run flowiseai
+Step 3: access to the keyclock inteface by [localhost](http://localhost:8080)
 
-Pre-Requirements : install Docker in your computer
+
+# Run flowiseai
 
 Step 1: direct to the flowise directory
 
@@ -77,11 +51,33 @@ Step 1: direct to the flowise directory
 cd Flowise
 ```
 
-Step 2: start docker desktop aplication
-
-
-Step 3: start flowise
+Step 2: start flowise
 
 ```bash
 docker-compose up -d
 ```
+
+Step 3: access to the flowise using http://localhost:3000/
+
+
+# Run Vuejs - frontend
+
+Step 1: direct to the Frontend directory
+
+```bash
+cd Frontend
+```
+
+Step 2: buil docker image
+
+```bash
+docker build -t frontend .
+```
+
+Step 3: run the container
+
+```bash
+docker run -p 5173:5173 frontend
+```
+
+Step 4: access to the frontend by http://localhost:5173/ 

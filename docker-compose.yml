@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  fastapi:
+    build: ./FastAPI  
+    container_name: fastapi
+    ports:
+      - "3000:3000"  
+    volumes:
+      - ./FastAPI:/app  
+    restart: unless-stopped
+    depends_on:
+      - keycloak
+
+  flowise:
+    image: flowiseai/flowise:latest  
+    container_name: flowise
+    ports:
+      - "3001:3001" 
+    volumes:
+      - ./Flowise/storage:/root/.flowise 
+    environment:
+      - PORT=3001
+      - APIKEY_PATH=/root/.flowise
+    restart: unless-stopped
+
+  frontend:
+    build: ./Frontend  
+    container_name: frontend
+    ports:
+      - "5173:5173"  
+    volumes:
+      - ./Frontend:/app  
+    restart: unless-stopped
+    depends_on:
+      - fastapi
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest  
+    container_name: keycloak
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8080:8080" 
+    command: start-dev
+    restart: unless-stopped
